@@ -34,7 +34,7 @@ const [disabled, setDisabled ] = useState(false)
     .map((card) => 
     ({...card, id: Math.random()}))
 
-    setCards(shuffledCards) // set state to shuffled cards for game
+    setCards(shuffledCards) 
     setTurns(0) // resets the game to a new one
   }
 
