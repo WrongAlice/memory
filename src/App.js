@@ -22,15 +22,19 @@ const [choiceOne, setChoiceOne] = useState(null)
 const [choiceTwo, setChoiceTwo] = useState(null)
 
 
-  //shuffle cards
+  //shuffle cards function
+  // a: duplicate cards 
+  // b: sort to randomize
+  // c: apply random id to each card to use for key
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
     .sort(() => Math.random() - 0.5)
-    .map((card) => ({...card, id: Math.random()}))
+    .map((card) => 
+    ({...card, id: Math.random()}))
 
     setCards(shuffledCards)
-    setTurns(0)
+    setTurns(0) // resets the game to a new one
   }
 
   console.log(cards, turns )
