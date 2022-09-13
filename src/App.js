@@ -34,7 +34,7 @@ const [disabled, setDisabled ] = useState(false)
     .map((card) => 
     ({...card, id: Math.random()}))
 
-    setCards(shuffledCards) 
+    setCards(shuffledCards) // set state to shuffled cards for game
     setTurns(0) // resets the game to a new one
   }
 
@@ -46,7 +46,7 @@ const [disabled, setDisabled ] = useState(false)
 
   
 // fn for comparison of selected  cards, when each choice is updated 
-//via the dependency array
+//in the dependency array
   useEffect(() => {
 if (choiceOne && choiceTwo) {  
   setDisabled(true)
@@ -54,6 +54,7 @@ if (choiceOne && choiceTwo) {
 setCards(prevCards => { 
   return prevCards.map(card => { 
     if (card.src === choiceOne.src) { 
+      return {...card, matched: true} 
     }else {
       return card
     }
